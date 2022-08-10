@@ -3,6 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.7.10"
     application
+    id ("java")
+    id ("jacoco")
+
 }
 
 group = "ru.netology"
@@ -13,11 +16,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
+    implementation ("junit:junit:4.13.2")
+    testImplementation (kotlin("test"))
 }
 
 tasks.withType<KotlinCompile> {
